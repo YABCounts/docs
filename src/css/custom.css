@@ -2,6 +2,9 @@
 
 :root {
   font-family: "Inter";
+  --ifm-font-family-base: "Inter";
+  --ifm-heading-font-family: "Inter";
+  --ifm-code-font-size: 95%;
   --ifm-color-primary: #a855f7;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-navbar-background-color: #111827;
@@ -10,7 +13,8 @@
   --ifm-menu-color-background-active: #111827;
   --ifm-menu-color-background-hover: #111827;
   --ifm-background-color: #000 !important;
-  --ifm-code-font-size: 95%;
+  --ifm-card-background-color: #111827;
+  --openapi-input-background: #1f2937 !important;
 }
 
 .navbar {
@@ -72,7 +76,6 @@
 }
 
 .card {
-  background-color: #111827;
   transition: none !important;
   border: none !important;
   border-radius: 0.5rem;
@@ -93,7 +96,6 @@
 }
 
 .footer__title {
-  font-family: "Inter";
   margin-bottom: 8px;
 }
 
@@ -101,11 +103,39 @@
   color: #6b7280;
 }
 
+input,
 .navbar__search-input {
   font-family: "Inter";
 }
 
+input::placeholder,
 .navbar__search-input::placeholder {
   color: #fff;
   opacity: 0.5;
+}
+
+.navbar__items--right {
+  gap: 0.625rem;
+}
+
+.navbar__items--right > :last-child {
+  padding-left: 0;
+}
+
+.button {
+  font-family: "Inter";
+  background-color: #111827;
+  color: white;
+  border: none;
+  transition: none;
+}
+
+.button:hover {
+  color: white;
+  opacity: 0.5;
+}
+
+.button:disabled,
+.button[disabled] {
+  opacity: 0.5 !important;
 }

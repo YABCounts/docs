@@ -1,0 +1,419 @@
+openapi: 3.0.3
+info:
+  title: YAB ?! Counts
+  version: 1.0.2
+  description: "Reimagining the concept of live counters."
+servers:
+  - url: https://api.yabcounts.com/public
+paths:
+  /youtube/channel/{channel_id}:
+    get:
+      summary: Get a YouTube channel
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Your API key. Get one at https://yabcounts.com/api.
+        - name: channel_id
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The ID of the YouTube channel.
+          example: UCX6OQ3DkcsbYNE6H8uQQuVA
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Used to specify the specific fields you want from the response.
+          example: name,statistics.subscriberCount
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  handle:
+                    type: string
+                  url:
+                    type: string
+                  thumbnail:
+                    type: string
+                  banner:
+                    type: string
+                  statistics:
+                    type: object
+                    properties:
+                      subscriberCount:
+                        type: integer
+                      publicSubscriberCount:
+                        type: integer
+                      viewCount:
+                        type: integer
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Channel not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /youtube/video/{video_id}:
+    get:
+      summary: Get a YouTube video
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Your API key. Get one at https://yabcounts.com/api.
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The ID of the YouTube video.
+          example: QjvpjXdgugA
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Used to specify the specific fields you want from the response.
+          example: name,statistics.viewCount
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  publishedAt:
+                    type: string
+                    format: date-time
+                  thumbnail:
+                    type: string
+                  url:
+                    type: string
+                  creatorName:
+                    type: string
+                  statistics:
+                    type: object
+                    properties:
+                      viewCount:
+                        type: integer
+                      likeCount:
+                        type: integer
+                      commentCount:
+                        type: integer
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Video not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /rumble/channel/{channel_id}:
+    get:
+      summary: Get a Rumble channel
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Your API key. Get one at https://yabcounts.com/api.
+        - name: channel_id
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The ID of the Rumble channel.
+          example: _c1804905
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Used to specify the specific fields you want from the response.
+          example: name,statistics.followerCount
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  handle:
+                    type: string
+                  url:
+                    type: string
+                  thumbnail:
+                    type: string
+                  banner:
+                    type: string
+                  description:
+                    type: string
+                    nullable: true
+                  statistics:
+                    type: object
+                    properties:
+                      followerCount:
+                        type: integer
+                      videoCount:
+                        type: integer
+                      likeCount:
+                        type: integer
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Channel not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /rumble/video/{video_id}:
+    get:
+      summary: Get a Rumble video
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Your API key. Get one at https://yabcounts.com/api.
+        - name: video_id
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The ID of the Rumble video.
+          example: 85324457
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Used to specify the specific fields you want from the response.
+          example: name,statistics.viewCount
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  publishedAt:
+                    type: string
+                    format: date-time
+                  thumbnail:
+                    type: string
+                  url:
+                    type: string
+                  creatorName:
+                    type: string
+                  statistics:
+                    type: object
+                    properties:
+                      viewCount:
+                        type: integer
+                      likeCount:
+                        type: integer
+                      dislikeCount:
+                        type: integer
+                      commentCount:
+                        type: integer
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: Video not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /twitter/user/{username}:
+    get:
+      summary: Get a Twitter user
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Your API key. Get one at https://yabcounts.com/api.
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The username of the Twitter user.
+          example: elonmusk
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Used to specify the specific fields you want from the response.
+          example: name,statistics.followerCount
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  name:
+                    type: string
+                  handle:
+                    type: string
+                  url:
+                    type: string
+                  thumbnail:
+                    type: string
+                  banner:
+                    type: string
+                  description:
+                    type: string
+                  statistics:
+                    type: object
+                    properties:
+                      followerCount:
+                        type: integer
+                      followingCount:
+                        type: integer
+                      postCount:
+                        type: integer
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /twitch/channel/{username}:
+    get:
+      summary: Get a Twitch channel
+      parameters:
+        - name: key
+          in: query
+          required: true
+          schema:
+            type: string
+            description: Your API key. Get one at https://yabcounts.com/api.
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The username of the Twitch channel.
+          example: ninja
+        - name: fields
+          in: query
+          required: false
+          schema:
+            type: string
+            description: Used to specify the specific fields you want from the response.
+          example: name,statistics.followerCount
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username:
+                    type: string
+                  name:
+                    type: string
+                  handle:
+                    type: string
+                  url:
+                    type: string
+                  thumbnail:
+                    type: string
+                  banner:
+                    type: string
+                  description:
+                    type: string
+                  statistics:
+                    type: object
+                    properties:
+                      followerCount:
+                        type: integer
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            message:
+              type: string

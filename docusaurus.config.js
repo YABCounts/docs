@@ -34,8 +34,8 @@ const config = {
 
   presets: [
     [
-      "classic",
-      /** @type {import('@docusaurus/preset-classic').Options} */
+      "docusaurus-preset-openapi",
+      /** @type {import('docusaurus-preset-openapi').Options} */
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
@@ -44,6 +44,10 @@ const config = {
         blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        api: {
+          path: "spec.yaml",
+          routeBasePath: "/api",
         },
       }),
     ],
@@ -83,6 +87,11 @@ const config = {
             position: "right",
             label: "Tutorial",
           },
+          {
+            to: "/api",
+            label: "API",
+            position: "right",
+          },
         ],
       },
       footer: {
@@ -94,6 +103,10 @@ const config = {
               {
                 label: "Tutorial",
                 to: "/",
+              },
+              {
+                label: "API",
+                to: "/api",
               },
             ],
           },
