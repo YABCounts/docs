@@ -6,9 +6,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  favicon: "img/favicon.ico",
+  title: "YAB ?! Counts",
+  tagline: "Reimagining the concept of live counters.",
+  favicon: "https://yabcounts.com/favicon.ico",
 
   // Set the production url of your site here
   url: "https://docs.yabcounts.com",
@@ -55,24 +55,20 @@ const config = {
       // Replace with your project's social card
       image: "https://yabcounts.com/logo.png",
       navbar: {
-        title: "YAB ?! Counts",
+        title: "YAB ?! COUNTS",
         logo: {
-          alt: "My Site Logo",
+          alt: "YAB ?! Counts Logo",
           src: "https://yabcounts.com/logo.png",
           href: "https://yabcounts.com",
+          width: 40,
+          height: 40,
         },
         items: [
           {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
             position: "right",
+            label: "Tutorial",
           },
         ],
       },
@@ -134,6 +130,10 @@ const config = {
         {
           name: "twitter:card",
           content: "summary",
+        },
+        {
+          name: "theme-color",
+          content: "#a855f7",
         },
       ],
       prism: {
