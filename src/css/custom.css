@@ -70,3 +70,24 @@
 .menu__list-item-collapsible:hover .menu__caret:hover {
   background-color: #1f2937;
 }
+
+.card {
+  background-color: #111827;
+  transition: none !important;
+  border: none !important;
+  border-radius: 0.5rem;
+}
+
+.card:hover {
+  opacity: 0.8;
+}
+
+.hash-link,
+.hash-link:hover {
+  color: #404040;
+  font-weight: 400;
+}
+
+.hash-link:hover {
+  text-decoration: none;
+}
