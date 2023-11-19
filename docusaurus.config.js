@@ -141,6 +141,10 @@ const config = {
       },
       metadata: [
         {
+          name: "og:site_name",
+          content: "YAB ?! Counts",
+        },
+        {
           name: "twitter:card",
           content: "summary",
         },
