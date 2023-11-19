@@ -63,6 +63,10 @@
   color: inherit;
 }
 
+.navbar__search {
+  margin-left: 0 !important;
+}
+
 .menu__list-item-collapsible:hover .menu__caret:hover {
   background-color: #1f2937;
 }
