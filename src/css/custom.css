@@ -91,3 +91,12 @@
 .hash-link:hover {
   text-decoration: none;
 }
+
+.footer__title {
+  font-family: "Inter";
+  margin-bottom: 8px;
+}
+
+.footer__copyright {
+  color: #6b7280;
+}
