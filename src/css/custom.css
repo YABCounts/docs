@@ -100,3 +100,12 @@
 .footer__copyright {
   color: #6b7280;
 }
+
+.navbar__search-input {
+  font-family: "Inter";
+}
+
+.navbar__search-input::placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
