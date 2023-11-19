@@ -300,8 +300,8 @@ paths:
   /twitter/user/{username}:
     get:
       tags:
-        - Twitter
-      summary: Get a Twitter user
+        - X/Twitter
+      summary: Get a X/Twitter user
       parameters:
         - name: key
           in: query
@@ -314,7 +314,7 @@ paths:
           required: true
           schema:
             type: string
-            description: The username of the Twitter user.
+            description: The username of the X/Twitter user.
           example: elonmusk
         - name: fields
           in: query
