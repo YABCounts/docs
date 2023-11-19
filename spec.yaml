@@ -2,12 +2,26 @@ openapi: 3.0.3
 info:
   title: YAB ?! Counts
   version: 1.0.2
-  description: "Reimagining the concept of live counters."
+  description: |
+    Reimagining the concept of live counters.
+
+    ## API Keys
+    Get an API key at https://yabcounts.com/api, and specify it in the URL with `?key={your api key}`.
+
+    ## Fields
+    You can pick out what you want from the response by using the `fields` query. An example is `?fields=name,statistics.subscriberCount`.
 servers:
   - url: https://api.yabcounts.com/public
+tags:
+  - name: YouTube
+  - name: Rumble
+  - name: X/Twitter
+  - name: Twitch
 paths:
   /youtube/channel/{channel_id}:
     get:
+      tags:
+        - YouTube
       summary: Get a YouTube channel
       parameters:
         - name: key
@@ -73,6 +87,8 @@ paths:
                 $ref: "#/components/schemas/Error"
   /youtube/video/{video_id}:
     get:
+      tags:
+        - YouTube
       summary: Get a YouTube video
       parameters:
         - name: key
@@ -141,6 +157,8 @@ paths:
                 $ref: "#/components/schemas/Error"
   /rumble/channel/{channel_id}:
     get:
+      tags:
+        - Rumble
       summary: Get a Rumble channel
       parameters:
         - name: key
@@ -209,6 +227,8 @@ paths:
                 $ref: "#/components/schemas/Error"
   /rumble/video/{video_id}:
     get:
+      tags:
+        - Rumble
       summary: Get a Rumble video
       parameters:
         - name: key
@@ -279,6 +299,8 @@ paths:
                 $ref: "#/components/schemas/Error"
   /twitter/user/{username}:
     get:
+      tags:
+        - Twitter
       summary: Get a Twitter user
       parameters:
         - name: key
@@ -346,6 +368,8 @@ paths:
                 $ref: "#/components/schemas/Error"
   /twitch/channel/{username}:
     get:
+      tags:
+        - Twitch
       summary: Get a Twitch channel
       parameters:
         - name: key
