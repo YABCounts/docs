@@ -75,13 +75,19 @@
   background-color: #1f2937;
 }
 
-.card {
+.pagination-nav__link {
+  background-color: #111827;
+}
+
+.card,
+.pagination-nav__link {
   transition: none !important;
   border: none !important;
   border-radius: 0.5rem;
 }
 
-.card:hover {
+.card:hover,
+.pagination-nav__link:hover {
   opacity: 0.8;
 }
 
