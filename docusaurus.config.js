@@ -40,6 +40,9 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           routeBasePath: "/",
+          remarkPlugins: [
+            [require("@docusaurus/remark-plugin-npm2yarn"), { sync: true }],
+          ],
         },
         blog: false,
         theme: {
@@ -85,7 +88,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "right",
-            label: "Tutorial",
+            label: "Docs",
           },
           {
             to: "/api",
@@ -98,10 +101,10 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Documentation",
             items: [
               {
-                label: "Tutorial",
+                label: "Docs",
                 to: "/",
               },
               {

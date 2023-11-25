@@ -1,0 +1,53 @@
+# Using our Public API
+
+Ever since [YAB ?! Counts V1.0.2](https://yabcounts.com/blog/v1.0.2), we've had a public API. This allows anyone to fetch data from YAB ?! Counts and use it in their custom coutners, websites, etc.
+
+## Creating an API key
+
+To start creating an API key, first go to [yabcounts.com/api](https://yabcounts.com/api).
+
+![No API keys created](/api/no-api-keys.png)
+
+Click "Create API key" and give your API key a name. The name can be anything, it's only to identify which API key is which.
+
+![Create API key](/api/create-api-key.png)
+
+Once the API key is created, click on the three dots and click "Copy API key" to copy it to your clipboard. **DO NOT SHARE THIS KEY.** This will allow anyone access to the YAB ?! Counts Public API on your behalf.
+
+![Copy API key](/api/copy-api-key.png)
+
+## Fetching data from the API
+
+You can fetch from the public API directly. Below is an example in JavaScript, which fetches from the [YouTube Channel endpoint](/api/get-a-you-tube-channel).
+
+```js showLineNumbers
+// replace "{your api key}" with your API key that you got in the "Creating an API key" chapter
+fetch(
+  "https://api.yabcounts.com/public/youtube/channel/UCX6OQ3DkcsbYNE6H8uQQuVA?key={your api key}"
+)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+  });
+```
+
+If you're using [Node.js](https://nodejs.org), you can also use our [NPM package](https://github.com/YABCounts/node).
+
+Install it by running:
+
+```bash npm2yarn
+npm install yabcounts
+```
+
+And then you can fetch from the API like this:
+
+```js showLineNumbers
+import { YABCounts } from "yabcounts";
+const yabc = new YABCounts("{your api key}");
+
+async function main() {
+  console.log(await yabc.youtube.channel("UCX6OQ3DkcsbYNE6H8uQQuVA"));
+}
+
+main();
+```
