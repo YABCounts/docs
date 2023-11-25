@@ -16,6 +16,34 @@
   --openapi-input-background: #1f2937 !important;
 }
 
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111827;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid #111827;
+  border-radius: 10px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
+
+::-moz-selection {
+  background-color: rgba(147, 51, 234, 0.7);
+}
+
+::selection {
+  background-color: rgba(147, 51, 234, 0.7);
+}
+
 .navbar {
   height: auto;
   padding-top: 0.75rem;
