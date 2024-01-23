@@ -174,6 +174,17 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
+  scripts: [
+    {
+      type: "text/javascript",
+      src: "https://www.statcounter.com/counter/counter.js",
+    },
+    {
+      type: "text/javascript",
+      src: "/statcounter-setup.js",
+    },
+  ],
 };
 
 module.exports = config;
